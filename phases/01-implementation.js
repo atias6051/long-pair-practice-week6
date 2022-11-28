@@ -34,6 +34,7 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
 
   insert(key, value) {
     // Your code here
+    if(this.count / this.capacity > 0.7) this.resize()
     let ind = this.hashMod(key)
     let curr = this.data[ind]
     if(!curr){
@@ -53,6 +54,8 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
     this.data[ind].next = curr
     this.count++
     return;
+
+    // count divided by the capacity
   }
 
 
